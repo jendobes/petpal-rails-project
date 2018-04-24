@@ -1,0 +1,51 @@
+-- Create owners and pets
+-- Owner can adopt or foster pets
+  * owner & pet has_many fosters
+  * owner & pet has_many adoptions
+  * owner has_many pets through: :adoptions and :fosters
+  * pet has_many owners through: :adoptions and :fosters
+  * adoption belongs_to owner and belongs_to pet
+  * foster belongs_to owner and belongs_to pet
+
+-- Owner has...
+  name
+  email (validate)
+  password_digest
+  bio
+  zip code (validate)
+  foster?
+  adopt?
+  favorites
+  image
+
+
+-- Pet has...
+  name
+  gender
+  species/breed
+  age
+  bio
+  zip code (validate)
+  kill shelter (boolean)
+  foster?
+  adopt?
+  image
+
+-- Adoption
+  owner_id
+  pet_id
+  story
+
+-- Foster
+  owner_id
+  pet_id
+  story
+
+
+-- ActiveRecord scope method: pets by location, pets by distance
+    * could also do 'high risk' pets, aka kill shelter or age
+
+-- Owner & pet homepages display personal info
+-- Adoptions/fosters are nested resources of owners (show pet & story)
+
+-- User homepage dashboard will show favorited pets and pets close by/in same zip code or city

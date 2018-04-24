@@ -13,10 +13,10 @@
   password_digest
   bio
   zip code (validate)
-  foster?
-  adopt?
+  fosterer?
+  adopter?
   favorites
-  image
+  image (use paperclip?)
 
 
 -- Pet has...
@@ -27,8 +27,8 @@
   bio
   zip code (validate)
   kill shelter (boolean)
-  foster?
-  adopt?
+  fosterer?
+  adopter?
   image
 
 -- Adoption
@@ -41,6 +41,8 @@
   pet_id
   story
 
+-- Authentication for user login, user can login with facebook. can we get fb image for owner.image?
+
 
 -- ActiveRecord scope method: pets by location, pets by distance
     * could also do 'high risk' pets, aka kill shelter or age
@@ -49,3 +51,5 @@
 -- Adoptions/fosters are nested resources of owners (show pet & story)
 
 -- User homepage dashboard will show favorited pets and pets close by/in same zip code or city
+
+-- Pet Explore page where you can filter for breed, age, at risk, location

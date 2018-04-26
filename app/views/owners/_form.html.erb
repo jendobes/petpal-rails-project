@@ -1,0 +1,50 @@
+<%= form_for @owner, html: { multipart: true } do |form| %>
+
+  <div>
+  <%= form.label :image %>
+  <br>
+  <%= form.file_field :image %>
+  </div>
+
+<br>
+
+  <div>
+  <%= form.label :name, "Name" %>
+  <br>
+  <%= form.text_field :name %>
+  </div>
+
+<br>
+
+  <div>
+  <%= form.label :zip_code, "Zip code" %>
+  <br>
+  <%= form.number_field :zip_code %>
+  </div>
+
+<br>
+
+  <div>
+  <%= form.label :adopter, "Willing to adopt?"%>
+  <%= form.check_box(:adopter)%>
+  </div>
+
+<br>
+
+  <div>
+  <%= form.label :fosterer, "Willing to foster?"%>
+  <%= form.check_box(:fosterer)%>
+  </div>
+
+<br>
+
+  <div>
+    <%= form.label :bio, "About you:" %>
+    <br>
+    <%= form.text_area :bio %>
+  </div>
+
+<br>
+
+  <%= form.submit %>
+<% end %>

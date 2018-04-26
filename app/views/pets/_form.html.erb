@@ -1,0 +1,88 @@
+<%= form_for @pet, html: { multipart: true } do |form| %>
+
+  <div>
+  <%= form.label :image %>
+  <br>
+  <%= form.file_field :image %>
+  </div>
+
+<br>
+
+  <div>
+  <%= form.label :name, "Name" %>
+  <br>
+  <%= form.text_field :name %>
+  </div>
+
+<br>
+
+  <div>
+  <%= form.label :age, "Age" %>
+  <br>
+  <%= form.number_field :age %>
+  </div>
+
+<br>
+
+  <div>
+  <%= form.label :gender, "Select Gender" %>
+  <%= form.select :gender, [['Male', 'male'], ['Female', 'female']] %>
+  </div>
+
+<br>
+
+  <div>
+  <%= form.label :species, "Species" %>
+  <br>
+  <%= form.text_field :species %>
+  </div>
+
+<br>
+
+  <div>
+  <%= form.label :breed, "Breed" %>
+  <br>
+  <%= form.text_field :breed %>
+  </div>
+
+<br>
+
+  <div>
+  <%= form.label :zip_code, "Zip code" %>
+  <br>
+  <%= form.number_field :zip_code %>
+  </div>
+
+<br>
+
+  <div>
+  <%= form.label :kill_shelter, "In a kill shelter?"%>
+  <%= form.check_box(:kill_shelter)%>
+  </div>
+
+<br>
+
+  <div>
+  <%= form.label :adopter, "Up for adoption?"%>
+  <%= form.check_box(:adopter)%>
+  </div>
+
+<br>
+
+  <div>
+  <%= form.label :fosterer, "In need of a foster home?"%>
+  <%= form.check_box(:fosterer)%>
+  </div>
+
+<br>
+
+  <div>
+    <%= form.label :bio, "About this pet:" %>
+    <br>
+    <%= form.text_area :bio %>
+  </div>
+
+<br>
+
+  <%= form.submit %>
+<% end %>

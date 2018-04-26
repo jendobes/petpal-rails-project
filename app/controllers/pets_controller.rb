@@ -9,6 +9,9 @@ class PetsController < ApplicationController
     redirect_to pet_path(@pet)
   end
 
+  def index
+    @pets = Pets.all
+  end
 
 
   private

@@ -1,11 +1,9 @@
 -- Create owners and pets
 -- Owner can adopt or foster pets
-  * owner & pet has_many fosters
-  * owner & pet has_many adoptions
-  * owner has_many pets through: :adoptions and :fosters
-  * pet has_many owners through: :adoptions and :fosters
-  * adoption belongs_to owner and belongs_to pet
-  * foster belongs_to owner and belongs_to pet
+  * owner & pet has_many rescues
+  * owner has_many pets through: :rescues
+  * pet has_many owners through: :rescues
+  * rescue belongs_to owner and belongs_to pet
 
 -- Owner has...
   name
@@ -31,14 +29,10 @@
   adopter?
   image
 
--- Adoption
+-- Rescue
   owner_id
   pet_id
-  story
-
--- Foster
-  owner_id
-  pet_id
+  adoption?
   story
 
 -- Authentication for user login, user can login with facebook. can we get fb image for owner.image?

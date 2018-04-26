@@ -10,19 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_24_220720) do
-
-  create_table "adoptions", force: :cascade do |t|
-    t.integer "owner_id"
-    t.integer "pet_id"
-    t.text "story"
-  end
-
-  create_table "fosters", force: :cascade do |t|
-    t.integer "owner_id"
-    t.integer "pet_id"
-    t.text "story"
-  end
+ActiveRecord::Schema.define(version: 2018_04_26_191755) do
 
   create_table "owners", force: :cascade do |t|
     t.string "name"
@@ -53,6 +41,13 @@ ActiveRecord::Schema.define(version: 2018_04_24_220720) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "rescues", force: :cascade do |t|
+    t.integer "owner_id"
+    t.integer "pet_id"
+    t.text "story"
+    t.boolean "adoption"
   end
 
 end

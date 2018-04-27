@@ -4,4 +4,14 @@ class Pet < ActiveRecord::Base
   has_many :rescues
   has_many :owners, through: :rescues
 
+  def rescue_status
+    if self.adopter? && self.fosterer?
+      "Adopt me or foster me!"
+    elsif self.adopter?
+      "Adopt me, I am looking for a forever home!"
+    else
+      "I am looking for a foster home!"
+    end
+  end
+
 end

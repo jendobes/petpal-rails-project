@@ -8,9 +8,9 @@ class Pet < ActiveRecord::Base
     if self.adopter? && self.fosterer?
       "Adopt me or foster me!"
     elsif self.adopter?
-      "Adopt me, I am looking for a forever home!"
+      "Adopt me, I'm looking for a forever home!"
     else
-      "I am looking for a foster home!"
+      "I'm looking for a foster home!"
     end
   end
 

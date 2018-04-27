@@ -20,10 +20,13 @@ class OwnersController < ApplicationController
 
   def edit
     @owner = Owner.find(params[:id])
+    if @owner != current_user
+      redirect_to signin_path
+    end
   end
 
   def update
-    @owner = Owner.find(params[:id])
+    @owner = Owner.find_by(id: params[:id])
     @owner.update(owner_params)
     redirect_to owner_path(@owner)
   end

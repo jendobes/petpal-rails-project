@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
   <head>
     <title>Petpal</title>
@@ -12,11 +13,12 @@
       <%= link_to 'Home', owner_path(current_user) %>
     <% end %>
 
-    <%= link_to "Find Pets", pets_path %>
+  🐶  <%= link_to "Find Pets", pets_path %> 🐱
 
-    <%= link_to "Log Out", session_path, method:'delete' %>
+    <%= link_to "Log Out", logout_path, method:'delete' %>
 
   </head>
+  <br>
 
   <body>
     <%= yield %>

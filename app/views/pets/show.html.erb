@@ -1,1 +1,22 @@
 <%= image_tag @pet.image.url(:medium) %>
+<br>
+<% if @pet.kill_shelter %>
+  <%= "Please help, I am in a kill shelter!" %>
+<% end %>
+<br>
+<%= @pet.name %>
+<br>
+<%= @pet.species %>
+<br>
+<%= @pet.breed %>
+<br>
+<%= @pet.gender %>
+<br>
+<%= @pet.age %>
+<br>
+<%= @pet.zip_code %>
+<br>
+<%= @pet.rescue_status %>
+<br>
+
+<!-- if admin, edit this pet -->

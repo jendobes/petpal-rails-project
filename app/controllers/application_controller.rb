@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :verify_user_is_authenticated
+  # before_action :verify_user_is_authenticated
   helper_method :current_user
 
   private

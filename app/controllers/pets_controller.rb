@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  skip_before_action :verify_user_is_authenticated
+  # skip_before_action :verify_user_is_authenticated
 
   def index
     @pets = Pet.all

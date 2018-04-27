@@ -8,5 +8,7 @@ Zip Code: <%= @owner.zip_code%>
 <!-- need to figure out some methods for showing rescues <%= @owner.rescues %> -->
 <br>
 About me: <%=@owner.bio %>
-
-<!-- if @owner.id = session[:user_id] link_to "edit your profile" edit_owner_path(@owner) -->
+<br>
+<% if @owner == current_user %>
+<%= link_to "edit your profile", edit_owner_path(@owner) %>
+<% end %>

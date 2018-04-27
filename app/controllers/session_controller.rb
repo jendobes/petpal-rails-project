@@ -1,5 +1,5 @@
 class SessionController < ApplicationController
-  skip_before_action :verify_user_is_authenticated, only: [:new,:create]
+  # skip_before_action :verify_user_is_authenticated, only: [:new,:create]
   def new
     @user = Owner.new
   end

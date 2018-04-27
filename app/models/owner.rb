@@ -5,4 +5,14 @@ class Owner < ActiveRecord::Base
   has_many :rescues
   has_many :pets, through: :rescues
 
+  def rescue_status
+    if self.adopter? && self.fosterer?
+      "I adopt and foster!"
+    elsif self.adopter?
+      "I adopt!"
+    else
+      "I foster!"
+    end
+  end
+
 end

@@ -1,1 +1,12 @@
 <%= image_tag @owner.image.url(:medium) %>
+<br>
+<%= @owner.name %>
+<br>
+<%= @owner.rescue_status %>
+<br>
+<%= @owner.zip_code%>
+<!-- need to figure out some methods for showing rescues <%= @owner.rescues %> -->
+<br>
+<%=@owner.bio %>
+
+<!-- if @owner.id = session[:user_id] link_to "edit your profile" edit_owner_path(@owner) -->

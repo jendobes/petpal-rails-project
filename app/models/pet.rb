@@ -14,4 +14,12 @@ class Pet < ActiveRecord::Base
     end
   end
 
+  def self.dogs
+    Pet.where(species: 'Dog')
+  end
+
+  def self.cats
+    Pet.where(species: 'Cat')
+  end
+
 end

@@ -1,5 +1,19 @@
 <%= form_for @owner, html: { multipart: true } do |form| %>
 
+<% if @owner.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      There were some issues while creating your account...
+    </h2>
+
+    <ul>
+    <% @owner.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <h4>Login Information</h4>
 Email: <%= form.text_field :email %>
 Password: <%= form.password_field :password %>

@@ -2,8 +2,9 @@ class Owner < ActiveRecord::Base
   has_secure_password
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
-  validates :email, :presence => true, message: "You must enter an email"
-  validates :email, :uniqueness => true, message: "Hmm, this email has already been used to create an account..."
+  validates :email,
+    :presence => {:message => "cannot be blank"},
+    :uniqueness => {:message => "is associated with an existing account"}
 
 
   has_many :rescues

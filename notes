@@ -47,3 +47,9 @@
 -- User homepage dashboard will show favorited pets and pets close by/in same zip code or city
 
 -- Pet Explore page where you can filter for breed, age, at risk, location
+
+
+
+
+
+rails s -b 'ssl://localhost:3000?key=/Users/jenniferdobak/petpal/localhost.key&cert=/Users/jenniferdobak/petpal/localhost.crt'

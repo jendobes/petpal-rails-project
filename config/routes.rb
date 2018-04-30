@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   resources :owners
   resources :pets
 
-  get '/signin', to: 'session#new', as: 'signin'
-  post '/session', to: 'session#create', as: 'session'
-  delete '/logout', to: 'session#destroy'
+  get '/signin', to: 'sessions#new', as: 'signin'
+  post '/session', to: 'sessions#create', as: 'session'
+  delete '/logout', to: 'sessions#destroy'
+
+  get '/auth/facebook/callback' => 'sessions#create'
 
   root 'static_pages#welcome'
 

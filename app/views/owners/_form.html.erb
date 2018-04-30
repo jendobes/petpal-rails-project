@@ -1,5 +1,12 @@
 <%= form_for @owner, html: { multipart: true } do |form| %>
 
+<h4>Login Information</h4>
+Email: <%= form.text_field :email %>
+Password: <%= form.password_field :password %>
+Password Confirmation: <%= form.password_field :password_confirmation %>
+<br>
+
+<h4>Profile Information</h4>
   <div>
   <%= form.label :image %>
   <br>

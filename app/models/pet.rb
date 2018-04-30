@@ -1,6 +1,7 @@
 class Pet < ActiveRecord::Base
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+  validates :image, presence: true, message: "Please upload an image of this pet!"
   has_many :rescues
   has_many :owners, through: :rescues
 

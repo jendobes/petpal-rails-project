@@ -12,3 +12,5 @@ About me: <%=@owner.bio %>
 <% if @owner == current_user %>
 <%= link_to "edit your profile", edit_owner_path(@owner) %>
 <% end %>
+<br>
+<%= link_to 'Add a pet to the database', new_pet_path %>

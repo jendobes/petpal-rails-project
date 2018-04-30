@@ -7,11 +7,11 @@ class Owner < ActiveRecord::Base
 
   def rescue_status
     if self.adopter? && self.fosterer?
-      "I adopt and foster!"
+      "I'm looking to adopt or foster."
     elsif self.adopter?
-      "I adopt!"
+      "I'm looking to adopt."
     else
-      "I foster!"
+      "I'm looking to foster."
     end
   end
 

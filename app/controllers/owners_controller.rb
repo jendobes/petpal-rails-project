@@ -1,5 +1,4 @@
 class OwnersController < ApplicationController
-  # skip_before_action :verify_user_is_authenticated
 
   def index
     @owners = Owner.all

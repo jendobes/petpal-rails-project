@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   private
   def verify_user_is_authenticated
     redirect_to '/' unless user_is_authenticated
+    flash[:fail] = "You must be logged-in to access this page."
   end
 
   def user_is_authenticated

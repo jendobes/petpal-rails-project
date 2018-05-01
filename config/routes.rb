@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post '/session', to: 'sessions#create', as: 'session'
   delete '/logout', to: 'sessions#destroy'
 
+  get '/high-risk', to: 'pets#high_risk', as: 'high_risk'
+
   get '/auth/facebook/callback' => 'sessions#create'
 
   root 'static_pages#welcome'

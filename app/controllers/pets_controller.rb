@@ -5,6 +5,10 @@ class PetsController < ApplicationController
     @pets = Pet.all
   end
 
+  def high_risk
+    @pets = Pet.high_risk
+  end
+
   def show
     @pet = Pet.find(params[:id])
   end
@@ -27,6 +31,8 @@ class PetsController < ApplicationController
     @pet.update(pet_params)
     redirect_to pet_path(@pet)
   end
+
+
 
 
   private

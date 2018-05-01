@@ -1,9 +1,17 @@
 class Pet < ActiveRecord::Base
+
+  #paperclip image handling
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
-  validates :image, presence: true, message: "must be uploaded"
+  # validates :image, presence: true, message: "must be uploaded"
+
+  #DB relationships
   has_many :rescues
   has_many :owners, through: :rescues
+
+  #returns high risk pets who are elderly or in a kill shelter
+  scope :high_risk, -> { where("age > ?", 5).or(where(kill_shelter: true))}
+
 
   def rescue_status
     if self.adopter? && self.fosterer?

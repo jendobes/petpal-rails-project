@@ -13,8 +13,9 @@
       <div><h2><%= value %></h2></div>
     <% end %>
 
+<%= link_to 'PetPal', root_path %>
     <% if current_user %>
-      <%= link_to 'Home', owner_path(current_user) %>
+      🏡 <%= link_to 'Home', owner_path(current_user) %>
     <% end %>
 
   🐶  <%= link_to "Find Pets", pets_path %> 🐱

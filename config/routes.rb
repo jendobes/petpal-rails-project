@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :rescues
   end
 
+  resources :rescues, only: [:show, :index]
+
   resources :pets do
     resources :rescues
   end

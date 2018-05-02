@@ -1,0 +1,3 @@
+<% @rescues.each do |r| %>
+  <%= link_to '#{r.owner.name} & #{r.pet.name}', rescue_path(r) %>
+<% end %>

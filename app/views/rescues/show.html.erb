@@ -1,0 +1,5 @@
+<%= image_tag @rescue.owner.image.url(:medium) %> <%= image_tag @rescue.pet.image.url(:medium) %>
+<br>
+The story of <%=@rescue.owner.name%> and <%=@rescue.pet.name%>:
+<br>
+<%=@rescue.story%>

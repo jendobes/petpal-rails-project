@@ -10,6 +10,7 @@ Zip Code: <%= @owner.zip_code%>
 About me: <%=@owner.bio %>
 <br>
 <%= link_to 'My Rescues', owner_rescues_path(@owner) %>
+<br>
 <% if @owner == current_user %>
 <%= link_to "edit your profile", edit_owner_path(@owner) %>
 <% end %>

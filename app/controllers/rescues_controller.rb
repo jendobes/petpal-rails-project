@@ -28,9 +28,19 @@ class RescuesController < ApplicationController
   end
 
   def edit
+    @owner = Owner.find(params[:owner_id])
+    @rescue = Rescue.find(params[:id])
   end
 
   def update
+    @owner = Owner.find(params[:owner_id])
+    @rescue = Rescue.find(params[:id])
+    @rescue.update(rescue_params)
+    if @rescue.save
+      redirect_to owner_rescue_path(@rescue)
+    else
+      render 'edit'
+    end
   end
 
   private

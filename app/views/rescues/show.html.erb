@@ -3,3 +3,8 @@
 The story of <%=@rescue.owner.name%> and <%=@rescue.pet.name%>:
 <br>
 <%=@rescue.story%>
+<br>
+
+<% if session[:user_id] == @rescue.owner.id %>
+<%= link_to 'Edit', edit_owner_rescue_path(session[:user_id], @rescue) %>
+<%end%>

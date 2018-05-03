@@ -14,9 +14,17 @@ class RescuesController < ApplicationController
 
   def new
     @rescue = Rescue.new
+    @owner = Owner.find(params[:owner_id])
   end
 
   def create
+    @owner = Owner.find(params[:owner_id])
+    @rescue = @owner.rescues.build(rescue_params)
+    if @rescue.save
+      redirect_to owner_rescues_path
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -32,3 +40,16 @@ class RescuesController < ApplicationController
   end
 
 end
+
+
+
+{"utf8"=>"✓",
+  "authenticity_token"=>"wmw3LLqctcUT5n08Nj25z/6yQNQt2yATOw2AHOqwA0l/7m1gFQL4PcDef6LDJmkX+k35P+LsMG4zoyRkLVyHMg==",
+  "rescue"=>{
+    "pet_id"=>"1", "story"=>"my story"
+      },
+    "commit"=>"Create Rescue",
+    "controller"=>"rescues",
+    "action"=>"create",
+    "owner_id"=>"2"
+  }

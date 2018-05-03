@@ -12,6 +12,13 @@ class Pet < ActiveRecord::Base
   #returns high risk pets who are elderly or in a kill shelter
   scope :high_risk, -> { where("age > ?", 5).or(where(kill_shelter: true))}
 
+  def self.rescued
+    Rescue.all.map{|r| r.pet}
+  end
+
+  def self.not_rescued
+    Pet.all - Pet.rescued
+  end
 
   def rescue_status
     if self.adopter? && self.fosterer?

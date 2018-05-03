@@ -43,6 +43,12 @@ class RescuesController < ApplicationController
     end
   end
 
+  def destroy
+    @rescue = Rescue.find(params[:id])
+    @rescue.destroy
+    redirect_to owner_rescues_path
+  end
+
   private
 
   def rescue_params

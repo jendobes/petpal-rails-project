@@ -2,7 +2,7 @@ class PetsController < ApplicationController
   before_action :verify_user_is_authenticated, only: [:new,:edit]
 
   def index
-    @pets = Pet.all
+    @pets = Pet.not_rescued
   end
 
   def high_risk

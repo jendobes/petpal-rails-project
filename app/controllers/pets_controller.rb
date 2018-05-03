@@ -3,6 +3,7 @@ class PetsController < ApplicationController
 
   def index
     @pets = Pet.not_rescued
+    @rescued_pets = Pet.rescued
   end
 
   def high_risk

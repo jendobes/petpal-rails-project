@@ -5,9 +5,13 @@ Rails.application.routes.draw do
     resources :rescues
   end
 
+  resources :pets do
+    resources :rescues
+  end
+
   resources :rescues, only: [:show, :index]
 
-  resources :pets
+
 
   get '/signin', to: 'sessions#new', as: 'signin'
   post '/session', to: 'sessions#create', as: 'session'

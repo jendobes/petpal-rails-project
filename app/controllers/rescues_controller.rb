@@ -3,6 +3,8 @@ class RescuesController < ApplicationController
   def index
     if params[:owner_id]
       @rescues = Owner.find(params[:owner_id]).rescues
+    elsif params[:pet_id]
+      @rescues = Pet.find(params[:pet_id]).rescues
     else
       @rescues = Rescue.all
     end

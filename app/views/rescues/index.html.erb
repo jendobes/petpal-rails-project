@@ -5,4 +5,7 @@
   <br>
 <% end %>
 <br>
-<%= link_to 'Add a new rescue story', new_owner_rescue_path %>
+
+<% if session[:user_id] %>
+<%= link_to 'Add a new rescue story', new_owner_rescue_path(session[:user_id]) %>
+<% end %>

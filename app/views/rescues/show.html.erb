@@ -1,6 +1,6 @@
 <%= image_tag @rescue.owner.image.url(:medium) %> <%= image_tag @rescue.pet.image.url(:medium) %>
 <br>
-The story of <%=@rescue.owner.name%> and <%=@rescue.pet.name%>:
+The story of <%=link_to @rescue.owner.name, owner_path(@rescue.owner)%> and <%=link_to @rescue.pet.name, pet_path(@rescue.pet)%>:
 <br>
 <%=@rescue.story%>
 <br>

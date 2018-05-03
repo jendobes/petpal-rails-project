@@ -1,8 +1,13 @@
+
+<% if @rescues.count == 0 %>
+  <h4> Looks like you don't have any rescues yet! Click 'Find Pets' to get started </h4>
+<% else %>
 <% @rescues.each do |r| %>
   <%= link_to(rescue_path(r)) do %>
     <%= r.owner.name %> & <%= r.pet.name %>
-  <%end%>
+    <%end%>
   <br>
+  <% end %>
 <% end %>
 <br>
 

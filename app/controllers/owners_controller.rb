@@ -16,7 +16,7 @@ class OwnersController < ApplicationController
     @owner = Owner.new(owner_params)
     if @owner.save
       session[:user_id] = @owner.id
-      redirect_to owner_path(@owner)
+      redirect_to edit_owner_path(@owner)
     else
       render 'owners/new'
     end

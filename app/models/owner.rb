@@ -5,7 +5,8 @@ class Owner < ActiveRecord::Base
   validates :email,
     :presence => {:message => "cannot be blank"},
     :uniqueness => {:message => "is associated with an existing account"}
-  validates :bio, length: { maximum: 500 }
+  validates :bio, presence: true, length: { maximum: 500 }, on: :update
+  validates :name, presence: true, on: :update
 
 
 

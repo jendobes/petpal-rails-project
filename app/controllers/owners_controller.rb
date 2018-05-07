@@ -32,7 +32,11 @@ class OwnersController < ApplicationController
   def update
     @owner = Owner.find_by(id: params[:id])
     @owner.update(owner_params)
-    redirect_to owner_path(@owner)
+    if @owner.save
+      redirect_to owner_path(@owner)
+    else
+      render 'owners/edit'
+    end
   end
 
   private

@@ -1,6 +1,32 @@
 <h1> These pets are looking for homes! </h1>
 <!-- add filters, location/high risk(scope)/dog or cat -->
+Filter for...
+<%= form_tag(pets_path method: :get) do %>
+  <div>
+  <%= label_tag :pet_dog, "Dogs" %>
+  <%= check_box_tag :pet_dog %>
+  <br>
+  <%= label_tag :pet_cat, "Cats" %>
+  <%= check_box_tag :pet_cat %>
+  <br>
+  <%= label_tag :high_risk, "High-risk:" %>
+  <%= check_box_tag :high_risk%>
+  <br>
+  </div>
+  <%= submit_tag 'Search' %>
+<% end %>
+<br>
 
+<% if @filtered_pets %>
+<% @filtered_pets.each do |pet| %>
+  <%= image_tag pet.image.url(:thumb) %>
+  <%= link_to pet.name, pet_path(pet) %>
+  <br>
+<% end %>
+<% end %>
+
+All pets:
+<br>
 <% @pets.each do |pet| %>
   <%= image_tag pet.image.url(:thumb) %>
   <%= link_to pet.name, pet_path(pet) %>

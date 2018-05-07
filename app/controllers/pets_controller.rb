@@ -4,6 +4,9 @@ class PetsController < ApplicationController
   def index
     @pets = Pet.not_rescued
     @rescued_pets = Pet.rescued
+    if params[:species]
+      @filtered_pets = Pet.where('speices LIKE ?', "%#{params[:species]}%")
+    end
   end
 
   def high_risk

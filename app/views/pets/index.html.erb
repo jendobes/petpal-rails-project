@@ -3,11 +3,11 @@
 Filter for...
 <%= form_tag(pets_path method: :get) do %>
   <div>
-  <%= label_tag :pet_dog, "Dogs" %>
-  <%= check_box_tag :pet_dog %>
+  <%= label_tag :species, "Dogs" %>
+  <%= check_box_tag :species, params[:species] %>
   <br>
-  <%= label_tag :pet_cat, "Cats" %>
-  <%= check_box_tag :pet_cat %>
+  <%= label_tag :species, "Cats" %>
+  <%= check_box_tag :species, params[:species] %>
   <br>
   <%= label_tag :high_risk, "High-risk:" %>
   <%= check_box_tag :high_risk%>

@@ -33,6 +33,7 @@ gem 'dotenv-rails'
 gem 'thin'
 gem 'open_uri_redirections'
 gem "paperclip", "~> 6.0.0"
+gem 'bootstrap-sass'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

@@ -7,6 +7,7 @@ class Owner < ActiveRecord::Base
     :uniqueness => {:message => "is associated with an existing account"}
   validates :bio, presence: true, length: { maximum: 500 }, on: :update
   validates :name, presence: true, on: :update
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
 
 

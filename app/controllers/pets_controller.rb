@@ -2,11 +2,10 @@ class PetsController < ApplicationController
   before_action :verify_user_is_authenticated, only: [:new,:edit]
 
   def index
-    @pets = Pet.not_rescued
+  if params[:search]
+    @pets = Pet.send(params[:search])
+  end
     @rescued_pets = Pet.rescued
-    if params[:species]
-      @filtered_pets = Pet.where('speices LIKE ?', "%#{params[:species]}%")
-    end
   end
 
   def high_risk
@@ -22,8 +21,12 @@ class PetsController < ApplicationController
   end
 
   def create
-    @pet = Pet.create(pet_params)
-    redirect_to pet_path(@pet)
+    @pet = Pet.new(pet_params)
+    if @pet.save
+      redirect_to pet_path(@pet)
+    else
+      render 'pets/new'
+    end
   end
 
   def edit
@@ -42,7 +45,7 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    params.require(:pet).permit(:name, :age, :kill_shelter, :gender, :image, :zip_code, :bio, :adopter, :fosterer, :breed, :owner, :species)
+    params.require(:pet).permit(:name, :age, :kill_shelter, :gender, :image, :zip_code, :bio, :adopter, :fosterer, :breed, :owner, :species, :search)
   end
 
 end

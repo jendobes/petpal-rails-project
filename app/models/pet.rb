@@ -3,7 +3,7 @@ class Pet < ActiveRecord::Base
   #paperclip image handling
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
-  validates :image, presence: true
+  validates :image, :name, :species, :bio, presence: true
   validates :bio, length: { maximum: 500 }
 
   #DB relationships

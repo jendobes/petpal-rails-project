@@ -1,36 +1,41 @@
-<h1> These pets are looking for homes! </h1>
+<!-- <h1> These pets are looking for homes! </h1> -->
 <!-- add filters, location/high risk(scope)/dog or cat -->
-Filter for...
-<%= form_tag(pets_path method: :get) do %>
+What kind of pet are you looking for?
+
+<!-- Filter for... -->
+<%= form_tag('/pets', :method => 'get') do %>
   <div>
-  <%= label_tag :species, "Dogs" %>
-  <%= check_box_tag :species, params[:species] %>
+  <%= label_tag :dog, "Dogs" %>
+  <%= check_box_tag :dog, params[:search] %>
   <br>
-  <%= label_tag :species, "Cats" %>
-  <%= check_box_tag :species, params[:species] %>
+  <%= label_tag :cat, "Cats" %>
+  <%= check_box_tag :cat, params[:search] %>
   <br>
   <%= label_tag :high_risk, "High-risk:" %>
   <%= check_box_tag :high_risk%>
   <br>
   </div>
   <%= submit_tag 'Search' %>
+  <%= params.inspect %>
 <% end %>
 <br>
 
-<% if @filtered_pets %>
-<% @filtered_pets.each do |pet| %>
+<!-- <% if @filtered_pets %>
+  <% @filtered_pets.each do |pet| %>
   <%= image_tag pet.image.url(:thumb) %>
   <%= link_to pet.name, pet_path(pet) %>
   <br>
-<% end %>
-<% end %>
+  <% end %>
+<% end %> -->
 
-All pets:
+<!-- All pets: -->
 <br>
+<% if @pets %>
 <% @pets.each do |pet| %>
   <%= image_tag pet.image.url(:thumb) %>
   <%= link_to pet.name, pet_path(pet) %>
   <br>
+<% end %>
 <% end %>
 
 <h3> These lucky pets have found homes. Check out their stories! </h3>

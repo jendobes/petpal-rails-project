@@ -53,3 +53,4 @@
 
 
 rails s -b 'ssl://localhost:3000?key=/Users/jenniferdobak/petpal/localhost.key&cert=/Users/jenniferdobak/petpal/localhost.crt'
+pkill -9 -f puma

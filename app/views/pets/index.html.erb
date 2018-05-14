@@ -30,10 +30,3 @@ Search our pet database!
   <br>
 <% end %>
 <% end %>
-
-<h3> These lucky pets have found homes. Check out their stories! </h3>
-<% @rescued_pets.each do |pet| %>
-<%= image_tag pet.image.url(:thumb) %>
-<%= link_to pet.name, pet_rescues_path(pet) %>
-  <br>
-<% end %>

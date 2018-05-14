@@ -5,7 +5,6 @@ class PetsController < ApplicationController
     if params[:select]
       @pets = Pet.send(params[:select])
     end
-    @rescued_pets = Pet.rescued
   end
 
   def high_risk

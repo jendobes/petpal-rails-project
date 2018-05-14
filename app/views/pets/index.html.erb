@@ -24,7 +24,7 @@ Search our pet database!
 <br>
 <% if @pets %>
 <% @pets.each do |pet| %>
-  <%= image_tag pet.image.url(:thumb) %>
+  <%= link_to pet_path(pet) do %> <%= image_tag pet.image.url(:thumb) %> <%end%>
   <%= link_to pet.name, pet_path(pet) %>
   <br>
 <% end %>

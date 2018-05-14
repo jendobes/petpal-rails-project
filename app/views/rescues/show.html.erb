@@ -7,5 +7,5 @@ The story of <%=link_to @rescue.owner.name, owner_path(@rescue.owner)%> and <%=l
 
 <% if session[:user_id] == @rescue.owner.id %>
 <%= link_to 'Edit', edit_owner_rescue_path(session[:user_id], @rescue) %>
-<%= link_to "delete", owner_rescue_path(session[:user_id], @rescue), method: :delete, data: { confirm: "You sure?" } %>
+<%= link_to "Delete", owner_rescue_path(session[:user_id], @rescue), method: :delete, data: { confirm: "You sure?" } %>
 <%end%>

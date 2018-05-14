@@ -15,11 +15,12 @@
 
 <br>
 
-<div>
+<!-- <div class='input-field'>
 <%= f.label :pet_id, "Rescued Pet:" %>
-<br>
 <%= f.collection_select :pet_id, Pet.all, :id, :name %>
-</div>
+</div> -->
+
+<h4>I rescued <%= @pet.name %></h4>
 
 <br>
 
@@ -30,6 +31,7 @@
 </div>
 
 <%= f.hidden_field :owner_id, :value => @owner.id %>
+<%= f.hidden_field :pet_id, :value => @pet.id %>
 
 <%= f.submit %>
 

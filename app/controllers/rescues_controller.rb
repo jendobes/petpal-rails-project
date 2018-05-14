@@ -1,4 +1,5 @@
 class RescuesController < ApplicationController
+  before_action :verify_user_is_authenticated, only: [:new,:edit]
 
   def index
     if params[:owner_id]
@@ -16,7 +17,8 @@ class RescuesController < ApplicationController
 
   def new
     @rescue = Rescue.new
-    @owner = Owner.find(params[:owner_id])
+    @pet = Pet.find(params[:pet_id])
+    @owner = Owner.find(current_user.id)
   end
 
   def create
@@ -58,16 +60,3 @@ class RescuesController < ApplicationController
   end
 
 end
-
-
-
-{"utf8"=>"✓",
-  "authenticity_token"=>"wmw3LLqctcUT5n08Nj25z/6yQNQt2yATOw2AHOqwA0l/7m1gFQL4PcDef6LDJmkX+k35P+LsMG4zoyRkLVyHMg==",
-  "rescue"=>{
-    "pet_id"=>"1", "story"=>"my story"
-      },
-    "commit"=>"Create Rescue",
-    "controller"=>"rescues",
-    "action"=>"create",
-    "owner_id"=>"2"
-  }

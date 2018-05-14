@@ -21,6 +21,7 @@
           <li><%= @pet.rescue_status %></li>
           <li>Bio: <%= @pet.bio %></li>
           <li><%= link_to 'Edit this pet', edit_pet_path(@pet) %></li>
+          <li><%= link_to 'I adopted this pet!', new_pet_rescue_path(@pet) %></li>
         </ul>
       </div>
     </div>

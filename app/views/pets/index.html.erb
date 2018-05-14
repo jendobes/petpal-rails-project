@@ -1,24 +1,27 @@
 
-<h2> Find a pet </h2>
+<h2 class="center-align"> Find a pet </h2>
 
-Search our pet database!
+<p class="center-align"> Search our pet database! </p>
 <br>
-<%= form_tag('/pets', :method => 'get') do %>
-  <div>
-  <%= radio_button_tag :select, "dogs" %>
-  <%= label_tag :select_dogs, "Dogs" %>
-  |
-  <%= radio_button_tag :select, "cats" %>
-  <%= label_tag :select_cats, "Cats" %>
-  |
-  <%= radio_button_tag :select, "high_risk"%>
-  <%= label_tag :select_high_risk, "High-risk" %>
-  |
-  <%= radio_button_tag :select, "all"%>
-  <%= label_tag :select_all, "All Pets" %>
-  </div>
-  <%= submit_tag 'Search' %>
-<% end %>
+<div class="center-align">
+  <%= form_tag('/pets', :method => 'get') do %>
+
+    <%= radio_button_tag :select, "dogs" %>
+    <%= label_tag :select_dogs, "Dogs" %>
+    |
+    <%= radio_button_tag :select, "cats" %>
+    <%= label_tag :select_cats, "Cats" %>
+    |
+    <%= radio_button_tag :select, "high_risk"%>
+    <%= label_tag :select_high_risk, "High-risk" %>
+    |
+    <%= radio_button_tag :select, "all"%>
+    <%= label_tag :select_all, "All Pets" %>
+    <br>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Search</button>
+  <% end %>
+</div>
+
 <br>
 
 <br>

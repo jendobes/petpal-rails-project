@@ -1,16 +1,32 @@
-<h2>Welcome to PetPal</h2>
+<h2 class='center-align'>Welcome to PetPal</h2>
 
 <body>
 <br>
-<ul>
+<ul class='center-align'>
   <% if !session[:user_id] %>
   <li><%= link_to 'Log in', signin_path %> | <%= link_to 'Sign up', new_owner_path %> </li>
-  <li><%= link_to '/auth/facebook' do %> <%= image_tag("facebook-login.png", :size => '150x37') %> <%end%> </li>
+  <%= link_to '/auth/facebook' do %> <%= image_tag("facebook-login.png", :size => '150x37') %> <%end%> </li>
   <%end%>
 </ul>
 
+<div class='row'>
+  <div class="col s4">
+    <h5>Find a Pet</h5>
+    <%= link_to '/pets' do %> <%= image_tag("all-pets.png") %> <%end%>
+    <p>Search for a new best friend in our pet database</p>
+  </div>
 
-  <li><%= link_to 'Pets in Need:', '/high-risk' %> Please consider adopting or fostering elderly pets and those in kill shelters!</li>
-  <li><%= link_to 'Success Stories', rescues_path %> Check out some PetPal rescues stories!</li>
-  
+  <div class="col s4">
+    <h5>Pets in Need</h5>
+    <%= link_to '/high-risk' do %> <%= image_tag("in-need.png") %> <%end%>
+    <p>Please consider adopting or fostering elderly pets and those in kill shelters!</p>
+  </div>
+
+  <div class="col s4">
+    <h5> Success Stories</h5>
+    <%= link_to rescues_path do %> <%= image_tag("rescued.png") %> <%end%>
+    <p> Check out some PetPal rescues stories!</p>
+  </div>
+</div>
+
 </body>

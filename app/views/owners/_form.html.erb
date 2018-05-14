@@ -39,15 +39,15 @@
 <br>
 
   <div>
-  <%= form.label :adopter, "Willing to adopt?"%>
   <%= form.check_box(:adopter)%>
+  <%= form.label :adopter, "Willing to adopt?"%>
   </div>
 
 <br>
 
   <div>
-  <%= form.label :fosterer, "Willing to foster?"%>
   <%= form.check_box(:fosterer)%>
+  <%= form.label :fosterer, "Willing to foster?"%>
   </div>
 
 <br>
@@ -60,6 +60,6 @@
 
 <br>
 
-  <%= form.submit %>
+  <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
 
 <% end %>

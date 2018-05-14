@@ -2,21 +2,15 @@
 
 <body>
 <br>
+<ul>
   <% if !session[:user_id] %>
-
-<br>
-  <%= link_to '/auth/facebook' do %>
-  <%= image_tag("facebook-login.png", :size => '200x49') %>
+  <li><%= link_to 'Log in', signin_path %> | <%= link_to 'Sign up', new_owner_path %> </li>
+  <li><%= link_to '/auth/facebook' do %> <%= image_tag("facebook-login.png", :size => '150x37') %> <%end%> </li>
   <%end%>
-<br>
-  <%= link_to 'Log in', signin_path %>
-<br>
-  <%= link_to 'Sign up', new_owner_path %>
-<br>
-<%end%>
+</ul>
 
-  <%= link_to 'Pets in Need:', '/high-risk' %> Please consider adopting or fostering elderly pets and those in kill shelters!
-<br>
-  <%= link_to 'Success Stories', rescues_path %> Check out some PetPal rescues stories!
-<br>
+
+  <li><%= link_to 'Pets in Need:', '/high-risk' %> Please consider adopting or fostering elderly pets and those in kill shelters!</li>
+  <li><%= link_to 'Success Stories', rescues_path %> Check out some PetPal rescues stories!</li>
+  
 </body>

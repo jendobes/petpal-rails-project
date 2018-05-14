@@ -1,5 +1,6 @@
 class PetsController < ApplicationController
   before_action :verify_user_is_authenticated, only: [:new,:edit]
+  before_action :find_pet, only: [:show, :edit, :update]
 
   def index
     if params[:select]
@@ -12,7 +13,6 @@ class PetsController < ApplicationController
   end
 
   def show
-    @pet = Pet.find(params[:id])
   end
 
   def new
@@ -29,11 +29,9 @@ class PetsController < ApplicationController
   end
 
   def edit
-    @pet = Pet.find(params[:id])
   end
 
   def update
-    @pet = Pet.find(params[:id])
     @pet.update(pet_params)
     redirect_to pet_path(@pet)
   end
@@ -43,8 +41,12 @@ class PetsController < ApplicationController
 
   private
 
-  def pet_params
-    params.require(:pet).permit(:name, :age, :kill_shelter, :gender, :image, :zip_code, :bio, :adopter, :fosterer, :breed, :owner, :species, :search)
-  end
+    def pet_params
+      params.require(:pet).permit(:name, :age, :kill_shelter, :gender, :image, :zip_code, :bio, :adopter, :fosterer, :breed, :owner, :species, :search)
+    end
+
+    def find_pet
+      @pet = Pet.find(params[:id])
+    end
 
 end

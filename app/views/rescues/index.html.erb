@@ -1,9 +1,14 @@
-
-<% if @rescues.count == 0 %>
-  <h4> Looks like you don't have any rescues yet! Click 'Find Pets' to get started </h4>
+<% if @owner %>
+  <% if @rescues.count == 0 %>
+    <h4> Looks like you don't have any rescues yet!</h4>
+  <% else %>
+    <h4> Your Rescues </h4>
+  <% end %>
 <% else %>
+  <h4> Success Stories <h4>
+<% end %>
 
-  <h4> Your Rescues </h4>
+
   <ul>
     <% @rescues.each do |r| %>
       <%= link_to(rescue_path(r)) do %>
@@ -12,9 +17,6 @@
     <% end %>
   </ul>
 
-<% end %>
 
 
-<% if session[:user_id] %>
-<%= link_to 'Add a new rescue story', new_owner_rescue_path(session[:user_id]) %>
-<% end %>
+Click 'Find Pets' to browse pets that need rescuing

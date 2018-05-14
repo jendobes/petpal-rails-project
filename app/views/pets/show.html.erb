@@ -1,26 +1,28 @@
-<%= image_tag @pet.image.url(:medium) %>
-<br>
-<% if @pet.kill_shelter %>
-  <%= "Please help, I'm in a kill shelter 😥" %>
-<% end %>
-<br>
-Name: <%= @pet.name %>
-<br>
-Species: <%= @pet.species %>
-<br>
-Breed: <%= @pet.breed %>
-<br>
-Gender: <%= @pet.gender %>
-<br>
-Age: <%= @pet.age %>
-<br>
-Zip Code: <%= @pet.zip_code %>
-<br>
-<%= @pet.rescue_status %>
-<br>
-Bio: <%= @pet.bio %>
-<br>
 
-<%= link_to 'Edit this pet', edit_pet_path(@pet) %>
-
-<!-- if admin, edit this pet -->
+<div class="row">
+  <div class="col s12 m7">
+    <div class="card">
+      <div class="card-image">
+        <%= image_tag @pet.image.url(:medium) %>
+        <span class="card-title"><%= @pet.name %></span>
+        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+      </div>
+      <div class="card-content">
+        <ul>
+          <% if @pet.kill_shelter %>
+          <li><h5><%= "Please help, I'm in a kill shelter 😥" %></h5></li>
+          <% end %>
+          <li>Name: <%= @pet.name %></li>
+          <li>Species: <%= @pet.species %></li>
+          <li>Breed: <%= @pet.breed %></li>
+          <li>Gender: <%= @pet.gender %></li>
+          <li>Age: <%= @pet.age %></li>
+          <li>Zip Code: <%= @pet.zip_code %></li>
+          <li><%= @pet.rescue_status %></li>
+          <li>Bio: <%= @pet.bio %></li>
+          <li><%= link_to 'Edit this pet', edit_pet_path(@pet) %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

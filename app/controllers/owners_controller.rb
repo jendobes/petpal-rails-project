@@ -1,12 +1,12 @@
 class OwnersController < ApplicationController
-before_action :find_user
+before_action :find_user, only: [:show, :edit, :update]
 
   def index
     @owners = Owner.all
   end
 
   def show
-    # @owner = Owner.find(params[:id])
+
   end
 
   def new
@@ -24,14 +24,12 @@ before_action :find_user
   end
 
   def edit
-    # @owner = Owner.find(params[:id])
     if @owner != current_user
       redirect_to signin_path
     end
   end
 
   def update
-    # @owner = Owner.find_by(id: params[:id])
     @owner.update(owner_params)
     if @owner.save
       redirect_to owner_path(@owner)
@@ -47,9 +45,7 @@ before_action :find_user
     end
 
     def find_user
-      if params[:id]
-        @owner = Owner.find(params[:id])
-      end
+      @owner = Owner.find(params[:id])
     end
 
 end

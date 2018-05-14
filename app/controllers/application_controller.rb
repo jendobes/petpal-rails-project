@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  # before_action :verify_user_is_authenticated
   helper_method :current_user
 
 
@@ -19,5 +18,5 @@ class ApplicationController < ActionController::Base
     def current_user
       Owner.find_by(id:session[:user_id])
     end
-    
+
 end

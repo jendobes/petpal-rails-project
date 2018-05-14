@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :rescues, only: [:show, :index]
 
 
-  get '/pets', to: 'pets#index'
+  get '/find-pets', to: 'pets#search', as: 'search'
   get '/signin', to: 'sessions#new', as: 'signin'
   post '/session', to: 'sessions#create', as: 'session'
   delete '/logout', to: 'sessions#destroy'

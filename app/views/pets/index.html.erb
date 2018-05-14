@@ -1,24 +1,6 @@
 <!-- <h1> These pets are looking for homes! </h1> -->
 <!-- add filters, location/high risk(scope)/dog or cat -->
-What kind of pet are you looking for?
 
-<!-- Filter for... -->
-<%= form_tag('/pets', :method => 'get') do %>
-  <div>
-  <%= label_tag :dog, "Dogs" %>
-  <%= check_box_tag :dog, params[:search] %>
-  <br>
-  <%= label_tag :cat, "Cats" %>
-  <%= check_box_tag :cat, params[:search] %>
-  <br>
-  <%= label_tag :high_risk, "High-risk:" %>
-  <%= check_box_tag :high_risk%>
-  <br>
-  </div>
-  <%= submit_tag 'Search' %>
-  <%= params.inspect %>
-<% end %>
-<br>
 
 <!-- <% if @filtered_pets %>
   <% @filtered_pets.each do |pet| %>

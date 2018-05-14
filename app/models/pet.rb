@@ -3,6 +3,8 @@ class Pet < ActiveRecord::Base
   #paperclip image handling
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+
+  #validations
   validates :image, :name, :species, :bio, presence: true
   validates :bio, length: { maximum: 500 }
 
@@ -13,6 +15,7 @@ class Pet < ActiveRecord::Base
   #returns high risk pets who are elderly or in a kill shelter
   scope :high_risk, -> { where("age > ?", 5).or(where(kill_shelter: true))}
 
+  #scoping methods
   def self.rescued
     Rescue.all.map{|r| r.pet}
   end
@@ -38,5 +41,7 @@ class Pet < ActiveRecord::Base
   def self.cats
     Pet.where(species: 'Cat')
   end
+
+
 
 end

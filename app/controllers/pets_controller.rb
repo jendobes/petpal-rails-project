@@ -1,9 +1,6 @@
 class PetsController < ApplicationController
   before_action :verify_user_is_authenticated, only: [:new,:edit]
 
-  def search
-  end
-
   def index
     if params[:select]
       @pets = Pet.send(params[:select])

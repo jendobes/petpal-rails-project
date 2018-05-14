@@ -1,16 +1,27 @@
-<!-- <h1> These pets are looking for homes! </h1> -->
-<!-- add filters, location/high risk(scope)/dog or cat -->
 
 
-<!-- <% if @filtered_pets %>
-  <% @filtered_pets.each do |pet| %>
-  <%= image_tag pet.image.url(:thumb) %>
-  <%= link_to pet.name, pet_path(pet) %>
+
+Search our pet database!
+
+<%= form_tag('/pets', :method => 'get') do %>
+  <div>
+  <%= label_tag :dog, "Dogs" %>
+  <%= radio_button_tag :select, "dogs" %>
   <br>
-  <% end %>
-<% end %> -->
+  <%= label_tag :cat, "Cats" %>
+  <%= radio_button_tag :select, "cats" %>
+  <br>
+  <%= label_tag :high_risk, "High-risk" %>
+  <%= radio_button_tag :select, "high_risk"%>
+  <br>
+  <%= label_tag :all, "All Pets" %>
+  <%= radio_button_tag :select, "all"%>
+  <br>
+  </div>
+  <%= submit_tag 'Search' %>
+<% end %>
+<br>
 
-<!-- All pets: -->
 <br>
 <% if @pets %>
 <% @pets.each do |pet| %>

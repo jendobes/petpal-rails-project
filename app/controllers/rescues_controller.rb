@@ -15,7 +15,7 @@ class RescuesController < ApplicationController
   end
 
   def new
-
+    @rescue = Rescue.new
   end
 
   def create
@@ -54,6 +54,8 @@ class RescuesController < ApplicationController
     def find_owner
       if params[:owner_id]
         @owner = Owner.find(params[:owner_id])
+      else
+        @owner = current_user
       end
     end
 

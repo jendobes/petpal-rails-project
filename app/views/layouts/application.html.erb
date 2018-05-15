@@ -3,6 +3,12 @@
 <html>
   <head>
 
+  <style>
+    nav {
+    margin-bottom: 50px;
+  }
+  </style>
+
     <title>Petpal</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -16,7 +22,8 @@
 
 <nav>
   <div class='nav-wrapper'>
-    <a href="/" class="brand-logo center">PetPal</a>
+    <%= link_to '/' do %> <%= image_tag("logo.png", :class => "brand-logo center") %> <%end%>
+    <!-- <a href="/" class="brand-logo center"><img src='logo.png' alt='logo'></a> -->
     <ul>
       <li><%= link_to 'PetPal', root_path %></li>
       <% if current_user %> <li><%= link_to 'Profile', owner_path(current_user) %></li> <% end %>

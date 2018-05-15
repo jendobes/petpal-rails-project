@@ -1,10 +1,6 @@
 class OwnersController < ApplicationController
 before_action :find_user, only: [:show, :edit, :update]
 
-  def index
-    @owners = Owner.all
-  end
-
   def show
 
   end

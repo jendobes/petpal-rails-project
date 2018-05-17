@@ -5,7 +5,7 @@ class Pet < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   #validations
-  validates :image, :name, :species, :bio, presence: true
+  validates :name, :species, :bio, presence: true
   validates :bio, length: { maximum: 500 }
 
   #DB relationships

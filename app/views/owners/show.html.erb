@@ -15,7 +15,6 @@
           <% if @owner == current_user %>
           <li><%= link_to "Edit your profile", edit_owner_path(@owner) %></li>
           <% end %>
-          <li><%= link_to 'Add a pet to the database', new_pet_path %></li>
           <li><%= link_to 'My Rescues', owner_rescues_path(@owner) %></li>
         </ul>
       </div>

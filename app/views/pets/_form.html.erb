@@ -39,15 +39,21 @@
 <br>
 
   <div>
-  <%= form.label :gender, "Select Gender" %>
-  <%= form.select :gender, [['Male', 'male'], ['Female', 'female']] %>
+Select Gender:
+  <%= form.radio_button :gender, 'Male' %>
+  <%= form.label :gender_male, "Male" %>
+  <%= form.radio_button :gender, 'Female' %>
+  <%= form.label :gender_female, "Female" %>
   </div>
 
 <br>
 
 <div>
-<%= form.label :species, "Select Species" %>
-<%= form.select :species, [['Cat', 'Cat'], ['Dog', 'Dog']] %>
+Select Species:
+  <%= form.radio_button :species, 'Dog' %>
+  <%= form.label :species_dog, "Dog" %>
+  <%= form.radio_button :species, 'Cat' %>
+  <%= form.label :species_cat, "Cat" %>
 </div>
 
 <br>
@@ -69,22 +75,25 @@
 <br>
 
   <div>
-  <%= form.label :kill_shelter, "In a kill shelter?"%>
+
   <%= form.check_box(:kill_shelter)%>
+  <%= form.label :kill_shelter, "In a kill shelter?"%>
   </div>
 
 <br>
 
   <div>
-  <%= form.label :adopter, "Up for adoption?"%>
+
   <%= form.check_box(:adopter)%>
+  <%= form.label :adopter, "Up for adoption?"%>
   </div>
 
 <br>
 
   <div>
-  <%= form.label :fosterer, "In need of a foster home?"%>
+
   <%= form.check_box(:fosterer)%>
+  <%= form.label :fosterer, "In need of a foster home?"%>
   </div>
 
 <br>
@@ -98,5 +107,5 @@
 <br>
 
   <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
-  
+
 <% end %>

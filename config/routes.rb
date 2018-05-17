@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   end
 
   resources :pets do
-    resources :rescues
+    resources :rescues, only: [:new, :create]
   end
 
-  resources :rescues, only: [:show, :index]
+  resources :rescues, only: [:index]
 
   get '/signin', to: 'sessions#new', as: 'signin'
   post '/session', to: 'sessions#create', as: 'session'

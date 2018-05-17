@@ -11,7 +11,7 @@
 
   <ul>
     <% @rescues.each do |r| %>
-      <%= link_to(rescue_path(r)) do %>
+      <%= link_to(owner_rescue_path(r.owner_id, r)) do %>
       <li> <%= r.owner.name %> & <%= r.pet.name %></li>
       <%end%>
     <% end %>

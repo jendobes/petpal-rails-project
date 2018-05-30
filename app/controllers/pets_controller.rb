@@ -5,6 +5,9 @@ class PetsController < ApplicationController
   def index
     if params[:select]
       @pets = Pet.send(params[:select])
+    elsif params[:shelter_id]
+      @pets = Shelter.find(params[:shelter_id]).pets
+      render json: @pets
     end
   end
 

@@ -15,7 +15,7 @@
           <li>Breed: <%= @pet.breed %></li>
           <li>Gender: <%= @pet.gender %></li>
           <li>Age: <%= @pet.age %></li>
-          <li>Zip Code: <%= @pet.zip_code %></li>
+          <li>Shelter: <%= @pet.shelter.name %></li>
           <li><%= @pet.rescue_status %></li>
           <li>Bio: <%= @pet.bio %></li>
           <li><%= link_to 'I adopted this pet!', new_pet_rescue_path(@pet, @rescue) %> | <%= link_to 'Edit this pet', edit_pet_path(@pet) %></li>

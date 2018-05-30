@@ -1,52 +1,13 @@
--- Create owners and pets
--- Owner can adopt or foster pets
-  * owner & pet has_many rescues
-  * owner has_many pets through: :rescues
-  * pet has_many owners through: :rescues
-  * rescue belongs_to owner and belongs_to pet
-
--- Owner has...
-  name
-  email (validate)
-  password_digest
-  bio
-  zip code (validate)
-  fosterer?
-  adopter?
-  favorites
-  image (use paperclip?)
+REQUIREMENT
+1)
+2) sift through the animals in a specific shelter with the next button
+3) shelters have many pets?
+4) create a rescue story, append that rescue story to pet show page
+5) translate pet JSON responses into javascript Pet model objects -- or could do this with success stories
 
 
--- Pet has...
-  name
-  gender
-  species/breed
-  age
-  bio
-  zip code (validate)
-  kill shelter (boolean)
-  fosterer?
-  adopter?
-  image
+TODO:
 
--- Rescue
-  owner_id
-  pet_id
-  adoption?
-  story
-
--- Authentication for user login, user can login with facebook. can we get fb image for owner.image?
-
-
--- ActiveRecord scope method: pets by location, pets by distance
-    * could also do 'high risk' pets, aka kill shelter or age
-
--- Owner & pet homepages display personal info
--- Adoptions/fosters are nested resources of owners (show pet & story)
-
--- User homepage dashboard will show favorited pets and pets close by/in same zip code or city
-
--- Pet Explore page where you can filter for breed, age, at risk, location
 
 
 

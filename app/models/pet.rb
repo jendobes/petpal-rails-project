@@ -11,6 +11,7 @@ class Pet < ActiveRecord::Base
   #DB relationships
   has_many :rescues
   has_many :owners, through: :rescues
+  belongs_to :shelter
 
   #returns high risk pets who are elderly or in a kill shelter
   scope :high_risk, -> { where("age > ?", 5).or(where(kill_shelter: true))}

@@ -20,9 +20,13 @@ class SessionsController < ApplicationController
       redirect_to owner_path(@user)
     else
       @user = Owner.find_by(:email => params[:email])
-      return redirect_to root_path unless @user.authenticate(params[:password])
-        session[:user_id] = @user.id
-        redirect_to owner_path(@user)
+      if params[:password] == ""
+        redirect_to '/signin'
+      else
+        return redirect_to root_path unless @user.authenticate(params[:password])
+          session[:user_id] = @user.id
+          redirect_to owner_path(@user)
+      end
     end
   end
 
@@ -38,12 +42,12 @@ class SessionsController < ApplicationController
     request.env['omniauth.auth']
   end
 
-  def process_uri(uri)
-    require 'open-uri'
-    require 'open_uri_redirections'
-    open(uri, :allow_redirections => :safe) do |r|
-      r.base_uri.to_s
-    end
-  end
+  # def process_uri(uri)
+  #   require 'open-uri'
+  #   require 'open_uri_redirections'
+  #   open(uri, :allow_redirections => :safe) do |r|
+  #     r.base_uri.to_s
+  #   end
+  # end
 
 end

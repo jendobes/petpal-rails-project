@@ -3,6 +3,7 @@ class RescuesController < ApplicationController
   before_action :find_pet, :find_rescue, :find_owner
 
   def index
+    @owners = Owner.hero
     if params[:owner_id]
       @rescues = Owner.find(params[:owner_id]).rescues
     else

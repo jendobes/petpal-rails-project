@@ -15,7 +15,7 @@ class Owner < ActiveRecord::Base
   has_many :pets, through: :rescues
 
   #returns owner with the most rescues
-  scope :hero, -> { joins(:rescues).group("rescues.owner_id").order("count(rescues.owner_id) desc").limit(1)}
+  scope :hero, -> { joins(:rescues).group("rescues.owner_id").order("count(rescues.owner_id) desc")}
 
   def rescue_status
     if self.adopter? && self.fosterer?

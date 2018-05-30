@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :owners, only: [:new, :create, :edit, :update, :show] do
     resources :rescues
@@ -10,6 +9,8 @@ Rails.application.routes.draw do
   end
 
   resources :rescues, only: [:index]
+
+  resources :shelters, only: [:index, :show]
 
   get '/signin', to: 'sessions#new', as: 'signin'
   post '/session', to: 'sessions#create', as: 'session'

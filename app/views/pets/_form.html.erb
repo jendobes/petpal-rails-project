@@ -66,10 +66,20 @@ Select Species:
 
 <br>
 
-  <div>
-  <%= form.label :zip_code, "Zip code" %>
+  <!-- <div>
+  <%= form.label :shelter_id, "Shelter" %>
   <br>
-  <%= form.number_field :zip_code %>
+  <%= form.collection_select(:shelter_id, Shelter.all, :id, :name) %>
+  </div> -->
+
+  <div>
+  Select Shelter:
+    <%= form.radio_button :shelter_id, 1%>
+    <%= form.label :shelter_id_1, "Animal Haven Shelter" %>
+    <%= form.radio_button :shelter_id, 2%>
+    <%= form.label :shelter_id_2, "Animal Care Centers of NYC" %>
+    <%= form.radio_button :shelter_id, 3%>
+    <%= form.label :shelter_id_3, "Badass Brooklyn Animal Rescue" %>
   </div>
 
 <br>

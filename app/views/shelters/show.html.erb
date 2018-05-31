@@ -1,6 +1,8 @@
 <%= @shelter.name %>
 
-<div id="firstDiv">
+<div id="petIndex">
 </div>
 
-<%= link_to "See pets at this shelter", shelter_pets_path(@shelter), :id => "petIndex" %>
+<div id="buttons">
+<%= link_to "See pets at this shelter", shelter_pets_path(@shelter), :id => "showPets" %>
+</div>

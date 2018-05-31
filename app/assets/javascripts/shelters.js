@@ -2,15 +2,6 @@ $(document).ready(function() {
   attachListeners();
 });
 
-// function attachListeners() {
-//   $("#showPets").on('click', function(e) {
-//     $.get(this.href, function(data) {
-//       data.forEach(console.log(pet))
-//     }
-//     e.preventDefault()
-//   })
-// }
-
 function attachListeners() {
   $("#showPets").on('click', function(e) {
     $.get(this.href, function(data) {
@@ -20,7 +11,6 @@ function attachListeners() {
     e.preventDefault()
   })
 }
-
 
 function populateIndex(pet) {
   petLink = pet.name.link(`/pets/${pet.id}`)

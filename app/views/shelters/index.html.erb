@@ -1,4 +1,11 @@
-<% @shelters.each do |shelter| %>
-  <%= link_to shelter.name, shelter_path(shelter) %>
+<div class="center-align">
+  <h2>Our Partner Shelters</h2>
+
   <br>
-<% end %>
+
+  <% @shelters.each do |shelter| %>
+    <h4><%= link_to shelter.name, shelter_path(shelter) %><h4>
+    <br>
+  <% end %>
+  
+</div>

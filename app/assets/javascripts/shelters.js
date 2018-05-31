@@ -22,7 +22,7 @@ function attachListeners() {
 }
 
 
-function populatetIndex(pet) {
+function populateIndex(pet) {
   petLink = pet.name.link(`/pets/${pet.id}`)
   $("#petIndex").append(petLink).append("<br>")
 }

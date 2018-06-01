@@ -12,7 +12,18 @@ function attachListeners() {
   })
 }
 
+// function Pet(pet) {
+//   this.name = pet.name
+// }
+//
+// Pet
+//
+// Pet.prototype.renderLink() {
+//   //return '<a href'
+// }
+
 function populateIndex(pet) {
+  console.log("I am called")
   petLink = pet.name.link(`/pets/${pet.id}`)
-  $("#petIndex").append(petLink).append("<br>")
+  $("#petIndex").append(petLink).append('<br>')
 }

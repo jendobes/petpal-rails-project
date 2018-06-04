@@ -43,6 +43,8 @@ class Pet < ActiveRecord::Base
     Pet.where(species: 'Cat')
   end
 
-
+  def avatar_url
+    image.url(:medium)
+  end
 
 end

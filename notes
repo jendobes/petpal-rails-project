@@ -1,7 +1,7 @@
 REQUIREMENT
 1) DONE: index pets in shelter show page
 2) sift through the animals in a specific shelter with the next button
-3) shelters have many pets?
+3) shelters have many pets? OR show rescue stories on pet page
 4) create a rescue story, append that rescue story to pet show page
 5) translate pet JSON responses into javascript Pet model objects -- or could do this with success stories
 

@@ -26,6 +26,7 @@ function Pet(pet) {
   this.age = pet.age
   this.bio = pet.bio
   this.renderLink()
+  loadPet(this)
 }
 
 Pet.prototype.renderLink = function(){
@@ -34,11 +35,11 @@ Pet.prototype.renderLink = function(){
 }
 
 function loadPet(pet) {
-  let template = Handlebars.compile(document.getElementById("pet-template").innerHTML);
-  let result = template(pet)
-  const profilesDiv = document.getElementById("profiles")
+  console.log('loadPet')
+  // let template = Handlebars.compile(document.getElementById("pet-template").innerHTML);
+  let template = HandlebarsTemplates['pet_profile'](pet)
 
-  profilesDiv.innerHTML += result
+  document.getElementsByTagName("main")[0].innerHTML += template;
 }
 
 // function populateIndex(pet) {

@@ -37,6 +37,7 @@ gem 'bootstrap-sass'
 gem 'materialize-sass'
 gem 'active_model_serializers', '~> 0.10.2'
 gem 'jquery-rails'
+gem 'handlebars_assets'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

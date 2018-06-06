@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   attachListeners();
 });
@@ -8,6 +9,11 @@ function attachListeners() {
       data.forEach(pet => {new Pet(pet)})
     })
     $("#showPets").hide()
+    e.preventDefault()
+  })
+
+  $("#petIndex").on('click', function(e) {
+    console.log("hijacked!")
     e.preventDefault()
   })
 }
@@ -23,9 +29,16 @@ function Pet(pet) {
 }
 
 Pet.prototype.renderLink = function(){
-  console.log('prototype call')
   petLink = this.name.link(`/pets/${this.id}`)
   $("#petIndex").append(petLink).append('<br>')
+}
+
+function loadPet(pet) {
+  let template = Handlebars.compile(document.getElementById("pet-template").innerHTML);
+  let result = template(pet)
+  const profilesDiv = document.getElementById("profiles")
+
+  profilesDiv.innerHTML += result
 }
 
 // function populateIndex(pet) {

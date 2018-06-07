@@ -6,13 +6,16 @@ $(document).ready(function() {
 function attachListeners() {
   $("#showPets").on('click', function(e) {
     $.get(this.href, function(data) {
-      data.forEach(pet => {populateIndex(pet)})
+      data.forEach(pet => {
+        allPets.push(pet.id)
+        populateIndex(pet)})
     })
     $("#showPets").hide()
     e.preventDefault()
   })
 }
 
+let allPets = []
 
 function Pet(pet) {
   this.name = pet.name
@@ -21,8 +24,6 @@ function Pet(pet) {
   this.breed = pet.breed
   this.age = pet.age
   this.bio = pet.bio
-  // this.renderLink()
-  // loadPet(this)
 }
 
 // Pet.prototype.renderLink = function(){
@@ -31,6 +32,7 @@ function Pet(pet) {
 //   attachLinkListener()
 // }
 
+//creating pet links
 function populateIndex(pet) {
   // petLink = pet.name.link(`/pets/${pet.id}`)
   // $("#petIndex").append(petLink).append('<br>')
@@ -39,6 +41,7 @@ function populateIndex(pet) {
   attachLinkListener()
 }
 
+//hijacking pet links
 function attachLinkListener(){
   $(".petLinks").on('click', function(e) {
     $.get(this.href + '.json', function(data) {
@@ -49,7 +52,9 @@ function attachLinkListener(){
   })
 }
 
+//loading pet info to page
 function loadPet(pet) {
+  $("#main").empty()
   let template = HandlebarsTemplates['pet_profile'](pet)
   document.getElementsByTagName("main")[0].innerHTML += template;
 }

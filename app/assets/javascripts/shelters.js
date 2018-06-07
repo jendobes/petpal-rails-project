@@ -12,10 +12,10 @@ function attachListeners() {
     e.preventDefault()
   })
 
-  $("#petIndex").on('click', function(e) {
-    console.log("hijacked!")
-    e.preventDefault()
-  })
+  // $("#petIndex").on('click', function(e) {
+  //   console.log("hijacked!")
+  //   e.preventDefault()
+  // })
 }
 
 function Pet(pet) {
@@ -35,10 +35,7 @@ Pet.prototype.renderLink = function(){
 }
 
 function loadPet(pet) {
-  console.log('loadPet')
-  // let template = Handlebars.compile(document.getElementById("pet-template").innerHTML);
   let template = HandlebarsTemplates['pet_profile'](pet)
-
   document.getElementsByTagName("main")[0].innerHTML += template;
 }
 

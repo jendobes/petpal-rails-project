@@ -16,7 +16,10 @@ class PetsController < ApplicationController
   end
 
   def show
-    binding.pry
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @pet }
+    end
   end
 
   def new

@@ -11,12 +11,8 @@ function attachListeners() {
     $("#showPets").hide()
     e.preventDefault()
   })
-
-  // $("#petIndex").on('click', function(e) {
-  //   console.log("hijacked!")
-  //   e.preventDefault()
-  // })
 }
+
 
 function Pet(pet) {
   this.name = pet.name
@@ -30,8 +26,18 @@ function Pet(pet) {
 }
 
 Pet.prototype.renderLink = function(){
-  petLink = this.name.link(`/pets/${this.id}`)
-  $("#petIndex").append(petLink).append('<br>')
+  let template = HandlebarsTemplates['pet_link'](this)
+  document.getElementById("petIndex").innerHTML += template
+  attachLinkListener()
+}
+
+function attachLinkListener(){
+  $(".petLinks").on('click', function(e) {
+    $.get(this.href, function(data) {
+      console.log(data)
+    })
+    e.preventDefault()
+  })
 }
 
 function loadPet(pet) {

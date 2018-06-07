@@ -8,6 +8,11 @@ REQUIREMENT
 
 TODO:
 
+REQ 2:
+Create pet objects upon hijacking the pet link request with ajax get request.
+You can then pass in that pet object to handlebars and satisfy req 2
+maybe with dynamic id=data-*, you can make an array of the shelter's pet id's and sift through them with a next button
+
 
 
 

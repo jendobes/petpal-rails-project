@@ -57,4 +57,18 @@ function loadPet(pet) {
   $("#main").empty()
   let template = HandlebarsTemplates['pet_profile'](pet)
   document.getElementsByTagName("main")[0].innerHTML += template;
+  attachButtonListener()
+}
+
+//create next button clickability
+function attachButtonListener() {
+  let petId = document.getElementById('content').dataset.petId
+  let index = allPets.indexOf(parseInt(petId))
+  console.log(index)
+  $("#nextPet").on('click', function(e) {
+    $.get(`/pets/${petId}` + '.json', function(data) {
+      pet = new Pet(data)
+      loadPet(pet)
+    })
+  })
 }

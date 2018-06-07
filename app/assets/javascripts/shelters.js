@@ -62,13 +62,23 @@ function loadPet(pet) {
 
 //create next button clickability
 function attachButtonListener() {
-  let petId = document.getElementById('content').dataset.petId
-  let index = allPets.indexOf(parseInt(petId))
-  console.log(index)
+  let petId = getIndex()
   $("#nextPet").on('click', function(e) {
     $.get(`/pets/${petId}` + '.json', function(data) {
       pet = new Pet(data)
       loadPet(pet)
     })
   })
+}
+
+function getIndex() {
+  let petId = document.getElementById('content').dataset.petId
+  let index = allPets.indexOf(parseInt(petId))
+  if(index+1 === allPets.length){
+    console.log('too long')
+    return allPets[0]
+  }else{
+    console.log('under length')
+    return allPets[index+1]
+  }
 }

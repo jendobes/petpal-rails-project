@@ -16,6 +16,8 @@ class PetsController < ApplicationController
   end
 
   def show
+    @owner = current_user
+    @rescue = Rescue.new
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @pet }

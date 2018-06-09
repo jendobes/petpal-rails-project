@@ -6,9 +6,13 @@ $(document).ready(function() {
 function attachListeners() {
   $("#showPets").on('click', function(e) {
     $.get(this.href, function(data) {
-      data.forEach(pet => {
+      data.data.forEach(pet => {
+        console.log(pet)
+        newPet = new Pet(pet.attributes)
         allPets.push(pet.id)
-        populateIndex(pet)})
+        populateIndex(newPet)
+
+      })
     })
     $("#showPets").hide()
     e.preventDefault()
@@ -35,6 +39,7 @@ Pet.prototype.loadPet = function(){
 
 //creating pet links
 function populateIndex(pet) {
+  console.log(pet)
   // petLink = pet.name.link(`/pets/${pet.id}`)
   // $("#petIndex").append(petLink).append('<br>')
   let template = HandlebarsTemplates['pet_link'](pet)
@@ -74,6 +79,7 @@ function attachButtonListener() {
   })
 }
 
+//get petId for the 'next' button
 function getIndex() {
   let petId = document.getElementById('content').dataset.petId
   let index = allPets.indexOf(parseInt(petId))

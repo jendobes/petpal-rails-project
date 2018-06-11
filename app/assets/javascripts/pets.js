@@ -5,8 +5,8 @@ $(document).ready(function() {
 attachListeners = () => {
   $("#rescueForm").hide()
   $("#petRescue").on('click', function(e) {
-    console.log(this)
     e.preventDefault()
+    $(this).hide()
     let element = $("#rescueForm")
       element.show()
       element.scrollIntoView();

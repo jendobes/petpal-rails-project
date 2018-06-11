@@ -21,11 +21,12 @@ class RescuesController < ApplicationController
 
   def create
     @rescue = @owner.rescues.build(rescue_params)
-    if @rescue.save
-      redirect_to owner_rescues_path
-    else
-      render 'new'
-    end
+    # if @rescue.save
+    #   redirect_to owner_rescues_path
+    # else
+    #   render 'new'
+    # end
+    render json: @rescue
   end
 
   def edit

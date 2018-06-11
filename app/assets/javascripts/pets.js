@@ -15,7 +15,7 @@ attachListeners = () => {
 
 attachSubmitListener = () => {
   $("#new_rescue").on('submit', function(e) {
-    alert('this is working')
+
     // $.ajax({
     //   type: "POST",
     //   url: this.action,
@@ -25,6 +25,11 @@ attachSubmitListener = () => {
     //   }
     // })
     e.preventDefault()
+    let data = $(this).serialize()
+    let posting = $.post(this.action, data)
+    posting.done(function(data) {
+      debugger
+    })
   })
 }
 //hijack submit event of form

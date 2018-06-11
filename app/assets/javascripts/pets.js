@@ -5,6 +5,7 @@ $(document).ready(function() {
 attachListeners = () => {
   $("#rescueForm").hide()
   $("#petRescue").on('click', function(e) {
+    console.log(this)
     e.preventDefault()
     let element = $("#rescueForm")
       element.show()
@@ -35,7 +36,15 @@ attachSubmitListener = () => {
   })
 }
 
+function PetRescue(data) {
+  this.story = data.story
+}
 
+function populateStory(story) {
+  let template = HandlebarsTemplates['rescue_story'](story)
+  $("#rescueStory").append(template);
+  $("#rescueForm").empty()
+}
 //hijack submit event of form
 //take the form data and send it as an ajax post request. url of post request?
 //create rescue from that post request

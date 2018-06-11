@@ -14,10 +14,9 @@ attachListeners = () => {
 }
 
 attachSubmitListener = () => {
-  console.log("i was called")
-  $("#rescueSubmit").on('click', function(e) {
+  $("#new_rescue").on('submit', function(e) {
+    console.log(this)
     e.preventDefault()
-    alert("you clicked submit!")
   })
 }
 //hijack submit event of form

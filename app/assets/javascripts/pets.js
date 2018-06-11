@@ -28,10 +28,14 @@ attachSubmitListener = () => {
     let data = $(this).serialize()
     let posting = $.post(this.action, data)
     posting.done(function(data) {
-      debugger
+      let petRescue = data.data.attributes
+      let story = new PetRescue(petRescue)
+      populateStory(story)
     })
   })
 }
+
+
 //hijack submit event of form
 //take the form data and send it as an ajax post request. url of post request?
 //create rescue from that post request

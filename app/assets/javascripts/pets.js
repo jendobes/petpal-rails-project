@@ -17,15 +17,8 @@ attachListeners = () => {
 attachSubmitListener = () => {
   $("#new_rescue").on('submit', function(e) {
 
-    // $.ajax({
-    //   type: "POST",
-    //   url: this.action,
-    //   data: $(this).serialize(),
-    //   success: function(response){
-    //     debugger
-    //   }
-    // })
     e.preventDefault()
+
     let data = $(this).serialize()
     let posting = $.post(this.action, data)
     posting.done(function(data) {

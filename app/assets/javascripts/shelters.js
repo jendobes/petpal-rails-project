@@ -7,9 +7,8 @@ function attachListeners() {
   $("#showPets").on('click', function(e) {
     $.get(this.href, function(data) {
       data.data.forEach(pet => {
-        console.log(pet)
-        newPet = new Pet(pet.attributes)
-        allPets.push(pet.id)
+        newPet = new Pet(pet)
+        allPets.push(parseInt(pet.id))
         populateIndex(newPet)
 
       })
@@ -22,12 +21,12 @@ function attachListeners() {
 let allPets = []
 
 function Pet(pet) {
-  this.name = pet.name
+  this.name = pet.attributes.name
   this.id = pet.id
-  this.gender = pet.gender
-  this.breed = pet.breed
-  this.age = pet.age
-  this.bio = pet.bio
+  this.gender = pet.attributes.gender
+  this.breed = pet.attributes.breed
+  this.age = pet.attributes.age
+  this.bio = pet.attributes.bio
 }
 
 Pet.prototype.loadPet = function(){
@@ -39,7 +38,6 @@ Pet.prototype.loadPet = function(){
 
 //creating pet links
 function populateIndex(pet) {
-  console.log(pet)
   // petLink = pet.name.link(`/pets/${pet.id}`)
   // $("#petIndex").append(petLink).append('<br>')
   let template = HandlebarsTemplates['pet_link'](pet)
@@ -51,7 +49,8 @@ function populateIndex(pet) {
 function attachLinkListener(){
   $(".petLinks").on('click', function(e) {
     $.get(this.href + '.json', function(data) {
-      pet = new Pet(data)
+
+      pet = new Pet(data.data)
       // loadPet(pet)
       pet.loadPet()
     })
@@ -69,10 +68,10 @@ function attachLinkListener(){
 
 //create next button clickability
 function attachButtonListener() {
-  let petId = getIndex()
   $("#nextPet").on('click', function(e) {
+    let petId = getIndex()
     $.get(`/pets/${petId}` + '.json', function(data) {
-      pet = new Pet(data)
+      pet = new Pet(data.data)
       // loadPet(pet)
       pet.loadPet()
     })

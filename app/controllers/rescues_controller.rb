@@ -21,6 +21,7 @@ class RescuesController < ApplicationController
 
   def create
     @rescue = @owner.rescues.build(rescue_params)
+
     # if @rescue.save
     #   redirect_to owner_rescues_path
     # else

@@ -2,7 +2,7 @@ REQUIREMENT
 1) DONE: index pets in shelter show page
 2) DONE: sift through the animals in a specific shelter with the next button
 3) users have many rescue stories. render this with serializer.
-4) create a rescue story, append that rescue story to pet show page
+4) DONE: create a rescue story, append that rescue story to pet show page
 5) DONE: have model pet object in shelter rendering
 
 

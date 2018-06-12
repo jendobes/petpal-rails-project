@@ -9,7 +9,8 @@ REQUIREMENT
 TODO:
 
 Get pet image onto shelter pet card
-serializer not rendering correctly? breaking all functionality in pet next card
+serializer not rendering correctly? attributes are very nested
+persist the rescue story to the pet page
 
 
 

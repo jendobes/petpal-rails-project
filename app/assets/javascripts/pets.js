@@ -1,5 +1,6 @@
 $(document).ready(function() {
   attachListeners();
+  // getRescues();
 });
 
 attachListeners = () => {
@@ -37,6 +38,14 @@ function populateStory(story) {
   let template = HandlebarsTemplates['rescue_story'](story)
   $("#rescueStory").append(template);
   $("#rescueForm").empty()
+}
+
+function getRescues() {
+  let petId = parseInt($("#petId").text())
+  let url = `/pets/${petId}`
+  $.get(url + '.json', function(data) {
+      console.log(data.data)
+  })
 }
 //hijack submit event of form
 //take the form data and send it as an ajax post request. url of post request?

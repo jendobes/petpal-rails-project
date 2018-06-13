@@ -1,6 +1,6 @@
 $(document).ready(function() {
   attachListeners();
-  // getRescues();
+  getRescues();
 });
 
 attachListeners = () => {
@@ -44,7 +44,7 @@ function getRescues() {
   let petId = parseInt($("#petId").text())
   let url = `/pets/${petId}`
   $.get(url + '.json', function(data) {
-      console.log(data.data)
+      console.log(data)
   })
 }
 //hijack submit event of form

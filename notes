@@ -1,7 +1,10 @@
 REQUIREMENT
 1) DONE: index pets in shelter show page
+  *PROBLEM: need to figure out how to include the image url with JSON data
 2) DONE: sift through the animals in a specific shelter with the next button
-3) users have many rescue stories. render this with serializer.
+  *PROBLEM: this works, but the attriubtes are very nested. I feel like the serializer is messed up.
+3) DONE: pets have many rescue stories. render this with serializer.
+  *PROBLEM: cannot get attributes of rescues through json. pet serializer messed up.
 4) DONE: create a rescue story, append that rescue story to pet show page
 5) DONE: have model pet object in shelter rendering
 
@@ -10,7 +13,8 @@ TODO:
 
 Get pet image onto shelter pet card
 serializer not rendering correctly? attributes are very nested
-persist the rescue story to the pet page
+persist the rescue story to the pet page --> this is the has_many relationship revealed through the Serializer
+cannot get attributes for a rescue through pets
 
 
 

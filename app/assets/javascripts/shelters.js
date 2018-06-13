@@ -27,6 +27,7 @@ function Pet(pet) {
   this.breed = pet.attributes.breed
   this.age = pet.attributes.age
   this.bio = pet.attributes.bio
+  this.avatar = pet.attributes.avatar
 }
 
 Pet.prototype.loadPet = function(){

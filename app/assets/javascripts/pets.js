@@ -3,6 +3,7 @@ $(document).ready(function() {
   getRescues();
 });
 
+//show new rescue form
 attachListeners = () => {
   $("#rescueForm").hide()
   $("#petRescue").on('click', function(e) {
@@ -10,11 +11,11 @@ attachListeners = () => {
     $(this).hide()
     let element = $("#rescueForm")
       element.show()
-      element.scrollIntoView();
   })
   attachSubmitListener()
 }
 
+//prevent submit action, ajax post request
 attachSubmitListener = () => {
   $("#new_rescue").on('submit', function(e) {
 
@@ -26,28 +27,32 @@ attachSubmitListener = () => {
       let petRescue = data.data.attributes
       let story = new PetRescue(petRescue)
       populateStory(story)
+      $("#rescueForm").hide()
     })
   })
 }
 
+//rescue object model
 function PetRescue(data) {
   this.story = data.story
 }
 
-function populateStory(story) {
-  let template = HandlebarsTemplates['rescue_story'](story)
-  $("#rescueStory").append(template);
-  $("#rescueForm").empty()
-}
-
+//ajax get request for pet rescues
 function getRescues() {
   let petId = parseInt($("#petId").text())
   let url = `/pets/${petId}`
   $.get(url + '.json', function(data) {
-      console.log(data)
+    data.data.attributes.rescues.forEach(rescue => {
+      story = new PetRescue(rescue)
+      populateStory(story)
+
+    })
   })
 }
-//hijack submit event of form
-//take the form data and send it as an ajax post request. url of post request?
-//create rescue from that post request
-//send back json of the rescue that was added and inject it in the DOM
+
+//add rescue story to page
+function populateStory(story) {
+  let template = HandlebarsTemplates['rescue_story'](story)
+  $("#rescueStory").append(template);
+
+}

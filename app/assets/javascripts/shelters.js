@@ -10,7 +10,6 @@ function attachListeners() {
         newPet = new Pet(pet)
         allPets.push(parseInt(pet.id))
         populateIndex(newPet)
-
       })
     })
     $("#showPets").hide()
@@ -39,8 +38,6 @@ Pet.prototype.loadPet = function(){
 
 //creating pet links
 function populateIndex(pet) {
-  // petLink = pet.name.link(`/pets/${pet.id}`)
-  // $("#petIndex").append(petLink).append('<br>')
   let template = HandlebarsTemplates['pet_link'](pet)
   document.getElementById("petIndex").innerHTML += template
   attachLinkListener()
@@ -50,22 +47,12 @@ function populateIndex(pet) {
 function attachLinkListener(){
   $(".petLinks").on('click', function(e) {
     $.get(this.href + '.json', function(data) {
-
       pet = new Pet(data.data)
-      // loadPet(pet)
       pet.loadPet()
     })
     e.preventDefault()
   })
 }
-
-//loading pet info to page
-// function loadPet(pet) {
-//   $("#main").empty()
-//   let template = HandlebarsTemplates['pet_profile'](pet)
-//   document.getElementsByTagName("main")[0].innerHTML += template;
-//   attachButtonListener()
-// }
 
 //create next button clickability
 function attachButtonListener() {

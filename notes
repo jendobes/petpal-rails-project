@@ -1,18 +1,3 @@
-REQUIREMENT
-1) DONE: index pets in shelter show page
-2) DONE: sift through the animals in a specific shelter with the next button
-3) DONE: pets have many rescue stories. render this with serializer.
-  *PROBLEM: cannot get attributes of rescues through json. pet serializer messed up.
-4) DONE: create a rescue story, append that rescue story to pet show page
-5) DONE: have model pet object in shelter rendering
-
-
-TODO:
-
-persist the rescue story to the pet page --> this is the has_many relationship revealed through the Serializer
-
-
-
 
 rails s -b 'ssl://localhost:3000?key=/Users/jenniferdobak/petpal/localhost.key&cert=/Users/jenniferdobak/petpal/localhost.crt'
 pkill -9 -f puma

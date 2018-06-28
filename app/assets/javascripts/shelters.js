@@ -7,8 +7,7 @@ function attachListeners() {
   $("#showPets").on('click', function(e) {
     $.get(this.href, function(data) {
       data.data.forEach(pet => {
-        newPet = new Pet(pet)
-        allPets.push(parseInt(pet.id))
+        let newPet = new Pet(pet)
         populateIndex(newPet)
       })
     })
@@ -17,7 +16,24 @@ function attachListeners() {
   })
 }
 
-let allPets = []
+// let allPets = []
+//
+// class Pet {
+//   constructor(pet) {
+//     this.name = pet.attributes.name
+//     this.id = pet.id
+//     this.gender = pet.attributes.gender
+//     this.breed = pet.attributes.breed
+//     this.age = pet.attributes.age
+//     this.bio = pet.attributes.bio
+//     this.avatar = pet.attributes.avatar
+//   }
+//
+//   static petIndex() {
+//     return allPets
+//   }
+// }
+
 
 function Pet(pet) {
   this.name = pet.attributes.name
@@ -47,7 +63,7 @@ function populateIndex(pet) {
 function attachLinkListener(){
   $(".petLinks").on('click', function(e) {
     $.get(this.href + '.json', function(data) {
-      pet = new Pet(data.data)
+      let pet = new Pet(data.data)
       pet.loadPet()
     })
     e.preventDefault()
@@ -59,7 +75,7 @@ function attachButtonListener() {
   $("#nextPet").on('click', function(e) {
     let petId = getIndex()
     $.get(`/pets/${petId}` + '.json', function(data) {
-      pet = new Pet(data.data)
+      let pet = new Pet(data.data)
       // loadPet(pet)
       pet.loadPet()
     })
@@ -68,6 +84,12 @@ function attachButtonListener() {
 
 //get petId for the 'next' button
 function getIndex() {
+  let allPets = []
+  Array.from(document.querySelectorAll(".petLinks")).forEach(link => {
+      allPets.push(parseInt(link.dataset.id))
+    }
+  )
+
   let petId = document.getElementById('content').dataset.petId
   let index = allPets.indexOf(parseInt(petId))
   if(index+1 === allPets.length){

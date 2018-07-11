@@ -95,12 +95,3 @@ function getIndex() {
     return allPets[index+1]
   }
 }
-
-
-
-// blog on Hoisting and Scope
-// what is Hoisting?
-// focus on var, let and const
-// function named() vs function()
-// 7-week
-//alice@flatironschool.com

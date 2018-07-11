@@ -167,6 +167,7 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
+    pg (0.21.0)
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -283,6 +284,7 @@ DEPENDENCIES
   omniauth-facebook
   open_uri_redirections
   paperclip (~> 6.0.0)
+  pg (< 1.0)
   pry-rails
   puma (~> 3.11)
   rails (~> 5.2.0)

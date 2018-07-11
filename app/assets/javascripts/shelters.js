@@ -6,7 +6,18 @@ $(document).ready(function() {
 function attachListeners() {
   $("#showPets").on('click', function(e) {
     $.get(this.href, function(data) {
-      data.data.forEach(pet => {
+
+      data.data.sort(function(a,b){
+        var nameA = a.attributes.name
+        var nameB = b.attributes.name
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        return 0;
+      }).forEach(pet => {
         let newPet = new Pet(pet)
         populateIndex(newPet)
       })
@@ -16,24 +27,10 @@ function attachListeners() {
   })
 }
 
-// let allPets = []
-//
-// class Pet {
-//   constructor(pet) {
-//     this.name = pet.attributes.name
-//     this.id = pet.id
-//     this.gender = pet.attributes.gender
-//     this.breed = pet.attributes.breed
-//     this.age = pet.attributes.age
-//     this.bio = pet.attributes.bio
-//     this.avatar = pet.attributes.avatar
-//   }
-//
-//   static petIndex() {
-//     return allPets
-//   }
-// }
 
+function sortByName(data) {
+
+}
 
 function Pet(pet) {
   this.name = pet.attributes.name
@@ -98,3 +95,12 @@ function getIndex() {
     return allPets[index+1]
   }
 }
+
+
+
+// blog on Hoisting and Scope
+// what is Hoisting?
+// focus on var, let and const
+// function named() vs function()
+// 7-week
+//alice@flatironschool.com

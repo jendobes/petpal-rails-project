@@ -29,6 +29,10 @@ Owner.create(name: "Lindsay", bio: "Looking for a doggo", adopter: false, foster
 Owner.create(name: "Kate", bio: "Looking for a pupper!", adopter: false, fosterer: true, zip_code: 10010, email: "10@gmail.com", password: "password")
 Owner.create(name: "Chris", bio: "Just tryna help", adopter: false, fosterer: true, zip_code: 10001, email: "11@gmail.com", password: "password")
 
+Shelter.create(name: , website: )
+Shelter.create(name: , website: )
+Shelter.create(name: , website: )
+
 Rescue.create(owner_id: 1, pet_id: 1, story: "We love each other!", adoption: true)
 Rescue.create(owner_id: 2, pet_id: 2, story: "My pet rescued me", adoption: true)
 Rescue.create(owner_id: 3, pet_id: 3, story: "Who rescued who?", adoption: true)
